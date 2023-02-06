@@ -70,8 +70,7 @@ interface ILogInterface<T extends IPrint> {
     logToConsole(iPrintObj: T);
 }
 
-class Log<T extends IPrint> implements ILogInterface<T>
-{
+class Log<T extends IPrint> implements ILogInterface<T> {
     logToConsole(iPrintObj: T) {
         iPrintObj.print();
     }
