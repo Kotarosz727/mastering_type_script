@@ -84,3 +84,12 @@ const printObj: IPrint = {
 
 let logger = new Log();
 logger.logToConsole(printObj);
+
+class ClassA{ }
+class ClassB{ }
+
+function createClassInstance<T>(arg1: { new (): T }) {
+    return new arg1()
+}
+
+let ins = createClassInstance(ClassA)
