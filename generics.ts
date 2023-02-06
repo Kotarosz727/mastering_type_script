@@ -15,7 +15,7 @@ function usingTwoTypes<A, B> ( first: A, second: B) {
 }
 
 usingTwoTypes('test', 1);
-usingTwoTypes('test2', 2);
+usingTwoTypes<string, number>('test2', 2);
 
 class Concatenator<T extends Array<string> | Array<number>> {
     public concatenateArray(items: T): string {
