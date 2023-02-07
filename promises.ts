@@ -53,3 +53,18 @@ function errorPromise(): Promise<void> {
 console.log(`1. calling errorPromise()`);
 errorPromise().then(() => { })
     .catch(() => { console.log(`3. caught an error`) });
+
+function promiseReturningString(throwError: boolean): Promise<string>
+{
+    return new Promise<string>(
+        (
+            resolve: (outputValue: string) => void,
+            reject: (errorCode: number) => void
+        ) => {
+            if (throwError) {
+                reject(101);
+            }
+            resolve(`resolve with message`);
+        }
+    )
+}
