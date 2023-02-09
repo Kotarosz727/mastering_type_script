@@ -68,3 +68,71 @@ function promiseReturningString(throwError: boolean): Promise<string>
         }
     )
 }
+
+interface IConnection {
+    server: string;
+    port: number;
+}
+interface IError {
+    code: number;
+    message: string;
+}
+interface IDataRow {
+    id: number;
+    name: string;
+    surname: string;
+}
+
+function complexPromise
+(
+    connection: IConnection,
+    accessKey: string
+)
+    : Promise<IDataRow[]>
+{
+    return new Promise<IDataRow[]>(
+        (
+            resolve: (results: IDataRow[]) => void,
+            reject: (results: IError) => void
+        ) => {
+            // check the connection properties
+            // connect to the database
+            // retrieve data, or
+            // reject with an error
+        }
+    );
+}
+
+complexPromise(
+    {
+        server: "test",
+        port: 4200
+    },
+    "abcd"
+).then((rows: IDataRow[]) => {
+    // do something with rows
+})
+.catch((error: IError) => {
+    // do something with error
+});
+
+export function delayedPromise2(): Promise<void> {
+    return new Promise<void>(
+        (
+            resolve: () => void,
+            reject: () => void
+        ) => {
+            setTimeout(() => {
+                console.log(`2. calling resolve()`)
+                resolve();
+            }, 1000);
+        }
+    )
+}
+
+async function callDelayedPromise() {
+    console.log(`1. before calling delayedPromise`);
+    await delayedPromise2();
+    console.log(`3. after calling delayedPromise`)
+}
+callDelayedPromise();
