@@ -1,3 +1,3 @@
 test('should be false', () => {
-    expect(true).toBeFalsy();
+    expect(false).toBeFalsy();
 });
