@@ -1,4 +1,4 @@
-class AsyncWithPromise {
+class AsyncAwait {
     delayedPromise(): Promise<string> {
         return new Promise<string>(
             (resolve: (str: string) => void,
@@ -13,7 +13,7 @@ class AsyncWithPromise {
 }
 
 describe("async test with await", () => {
-    let asyncWithPromise = new AsyncWithPromise();
+    let asyncWithPromise = new AsyncAwait();
     it("should return success", async () => {
         console.log(`1. calling delayedPromise`);
         let result = await asyncWithPromise.delayedPromise();
