@@ -5,19 +5,19 @@ class AsyncAwait {
              reject: (str: string) => void) => {
                 setTimeout(() => {
                     console.log(`2. returning success`);
-                    resolve("success");
+                    resolve('success');
                 }, 1000)
             }
         )
     }
 }
 
-describe("async test with await", () => {
+describe('async test with await', () => {
     let asyncWithPromise = new AsyncAwait();
-    it("should return success", async () => {
+    it('should return success', async () => {
         console.log(`1. calling delayedPromise`);
         let result = await asyncWithPromise.delayedPromise();
         console.log(`3. expecting result`);
-        expect(result).toBe("success");
+        expect(result).toBe('success');
     })
 });
